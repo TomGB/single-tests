@@ -1,0 +1,15 @@
+{
+  "name": "ast-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "random.js",
+  "scripts": {
+    "test": "jest ./tests/*.test.js",
+    "test:random": "node random.js && jest ./random-tests/*"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "author": "",
+  "license": "ISC"
+}
