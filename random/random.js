@@ -46,7 +46,14 @@ const makeTestsSingle = (path, sandboxDir) => {
 
         const output = result.toString()
 
-        fs.writeFileSync(join(sandboxDir, dir, index.toString() + fileName), output)
+        const newFileName = join(sandboxDir, dir, index.toString() + fileName)
+        const newDirName = dirname(newFileName)
+
+        if (!fs.existsSync(newDirName)){
+            fs.mkdirSync(newDirName, { recursive: true });
+        }
+
+        fs.writeFileSync(newFileName, output)
     })
 }
 
@@ -58,6 +65,12 @@ const run = async () => {
 
     const copyNonTestFiles = sandboxFiles.map(async path => {
         const newFile = join(sandboxDir, path)
+        const dir = dirname(newFile)
+
+        if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir, { recursive: true });
+        }
+
         fs.copyFileSync(path, newFile);
     })
 

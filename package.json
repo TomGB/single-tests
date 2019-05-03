@@ -5,7 +5,7 @@
   "main": "random.js",
   "scripts": {
     "test": "jest ./tests/*.test.js",
-    "test:random": "node random.js && jest ./random-tests/*"
+    "random": "node random/random.js --config single.config.js"
   },
   "jest": {
     "verbose": true
