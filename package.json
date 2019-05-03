@@ -11,5 +11,12 @@
     "verbose": true
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "acorn": "^6.1.1",
+    "ast-traverse": "^0.1.1",
+    "glob-promise": "^3.4.0",
+    "globby": "^9.2.0",
+    "transform-ast": "^2.4.4"
+  }
 }
