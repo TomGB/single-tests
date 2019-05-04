@@ -2,10 +2,13 @@
   "name": "ast-test",
   "version": "1.0.0",
   "description": "",
-  "main": "random.js",
+  "main": "split/split.js",
   "scripts": {
-    "test": "jest ./tests/*.test.js",
-    "random": "node random/random.js --config single.config.js"
+    "test": "./testSplit.sh",
+    "split": "node lib/split.js --config split.config.js",
+    "test:beforeSplit": "rm -rf split-tmp && jest exampleTests",
+    "test:afterSplit": "jest split-tmp --json --outputFile=splitTestResults.json",
+    "test:splitOutcome": "jest lib/splitOutcome.test.js"
   },
   "jest": {
     "verbose": true
@@ -18,5 +21,8 @@
     "glob-promise": "^3.4.0",
     "globby": "^9.2.0",
     "transform-ast": "^2.4.4"
+  },
+  "devDependencies": {
+    "jest": "^24.6.0"
   }
 }
